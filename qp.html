@@ -1,0 +1,22 @@
+<!-- templates/qp.html -->
+{% extends 'layout.html' %}
+
+{% block title %}Question Papers{% endblock %}
+
+{% block content %}
+    <div class="content-header">
+        <h2>Previous Year Question Papers</h2>
+        <p>Click on a file to download it.</p>
+    </div>
+    <ul class="file-list">
+        {% for file in files %}
+            <li>
+                <a href="{{ url_for('download_qp', filename=file) }}">
+                    <span class="file-icon">&#128196;</span> {{ file }}
+                </a>
+            </li>
+        {% else %}
+            <li class="empty-message">No question papers have been uploaded yet.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
